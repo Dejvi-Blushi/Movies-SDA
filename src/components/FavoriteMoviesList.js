@@ -14,7 +14,7 @@ const FavoriteMovies = () => {
               <h2 className="text-xl font-semibold">{favorite.title}</h2>
               <p>{favorite.description}</p>
               <img
-                src={`http://localhost:8080/${favorite.image}`}
+                src={`${favorite.image}`}
                 alt={favorite.title}
                 className="w-[20rem] h-[20rem] object-cover mt-2"
               />

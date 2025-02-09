@@ -5,6 +5,10 @@ import FavoriteMoviesList from '../components/FavoriteMoviesList';
 import Contact from '../components/Contact';
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../components/Layout';
+import MovieForm from '../components/MovieForm';
+import ProfileForm from '../components/ProfileForm';
+import User from '../components/ProfileDetails';
+
 
 import { tokenLoader } from '../util/auth';
 import { action as logoutAction } from '../pages/Logout';
@@ -44,6 +48,18 @@ export const createRouter = () =>
         {
           path: '/contact',
           element: <Contact />,
+        },
+        {
+          path: '/add-movie',
+          element: <MovieForm />,
+        },
+        {
+          path: '/add-user',
+          element: <ProfileForm />,
+        },
+        {
+          path: '/see-user',
+          element: <User />,
         },
         {
           path: 'logout',

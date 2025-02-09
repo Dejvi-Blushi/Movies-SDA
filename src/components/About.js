@@ -20,7 +20,7 @@ const About = () => {
         <div className="sm:flex justify-center gap-24 p-10">
             <div className="">
                 <div className="">
-                    <img src={`http://localhost:8080${movieImg}`} className='w-[25rem]' alt='placeholder' />
+                    <img src={`${movieImg}`} className='w-[25rem]' alt='placeholder' />
                 </div>
             </div>
             <div className="sm:w-1/2 p-5">

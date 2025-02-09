@@ -26,7 +26,7 @@ const NavigationMenu = () => {
           .then((response) => setMovieImg(response.data[0].image))
           .catch((err) => console.log('Error:', err.message));
       };
-
+  
       fetchMovieImg();
     }, []);
 
@@ -75,7 +75,7 @@ const NavigationMenu = () => {
           </div>
           <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
             <div className='flex flex-shrink-0 items-center'>
-              <img className='h-8 w-auto' src={`http://localhost:8080/${movieImg}`} alt='Logo' />
+              <img className='h-8 w-auto' src={`${movieImg}`} alt='Logo' />
             </div>
             <div className='hidden sm:ml-6 sm:block'>
               <div className='flex space-x-4'>
@@ -100,6 +100,16 @@ const NavigationMenu = () => {
                 >
                   About Us
                 </Link>
+                <Link
+                  to='/contact'
+                  onClick={() => setActiveButton('/contact')}
+                  className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/contact')
+                    ? 'bg-gray-700 text-white'
+                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                    }`}
+                >
+                  Contact
+                </Link>
                 {token && (
                   <Link
                     to='/favorite-list'
@@ -112,16 +122,42 @@ const NavigationMenu = () => {
                     Favorite ({favoriteCount})
                   </Link>
                 )}
-                <Link
-                  to='/contact'
-                  onClick={() => setActiveButton('/contact')}
-                  className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/contact')
-                    ? 'bg-gray-700 text-white'
-                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                    }`}
-                >
-                  Contact
-                </Link>
+                                {token && (
+                  <Link
+                    to='/add-movie'
+                    onClick={() => setActiveButton('/add-movie')}
+                    className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/add-movie')
+                      ? 'bg-gray-700 text-white'
+                      : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                      }`}
+                  >
+                    Add Movie
+                  </Link>
+                )}
+                                                {token && (
+                  <Link
+                    to='/add-user'
+                    onClick={() => setActiveButton('/add-user')}
+                    className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/add-user')
+                      ? 'bg-gray-700 text-white'
+                      : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                      }`}
+                  >
+                    Add Users
+                  </Link>
+                )}
+                {token && (
+                  <Link
+                    to='/see-user'
+                    onClick={() => setActiveButton('/see-user')}
+                    className={`rounded-md px-3 py-2 text-sm font-medium ${isActive('/see-user')
+                      ? 'bg-gray-700 text-white'
+                      : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                      }`}
+                  >
+                    See Users
+                  </Link>
+                )}
                 {!token && (
                   <Link
                     to='/auth?mode=login'
